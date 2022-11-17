@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 
 import Card from '../UI/Card';
 import Button from '../UI/Button';
@@ -44,14 +44,14 @@ const AddUser = (props) => {
   };
 
   return (
-    <div>
+    <Fragment>
       {error && (
         <ErrorModal
-          title={error.title}
-          message={error.message}
-          onConfirm={errorHandler}
+        title={error.title}
+        message={error.message}
+        onConfirm={errorHandler}
         />
-      )}
+        )}
       <Card className={classes.input}>
         <form onSubmit={addUserHandler}>
           <label htmlFor="username">Username</label>
@@ -60,18 +60,18 @@ const AddUser = (props) => {
             type="text"
             value={enteredUsername}
             onChange={usernameChangeHandler}
-          />
+            />
           <label htmlFor="age">Age (Years)</label>
           <input
             id="age"
             type="number"
             value={enteredAge}
             onChange={ageChangeHandler}
-          />
+            />
           <Button type="submit">Add User</Button>
         </form>
       </Card>
-    </div>
+    </Fragment>
   );
 };
 
